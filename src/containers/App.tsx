@@ -12,18 +12,30 @@ export interface Props {
   selectUser?: () => void;
 }
 
-function App({ isFetching, users, transactions, selectUser }: Props) {
-  if (isFetching) {
-    return <div><p>Loading... </p></div>
+class App extends React.Component<Props, object> {
+  constructor(props: Props) {
+    super(props);
   }
-  return (
-    <div className="container">
-      <div className="row">
-        <Navbar users={users} selectUser={selectUser} />
-        <Transactions transactions={transactions} />
-      </div>
-    </div>
-  );
+
+  // componentDidMount() {
+    
+  // }
+
+  public render() {
+    const { users, selectUser, transactions, isFetching } = this.props;
+
+    if (isFetching) {
+      return <div><p>Loading... </p></div>
+    }
+    return (
+      <div className="container">
+       <div className="row">
+         <Navbar users={users} selectUser={selectUser} />
+         <Transactions transactions={transactions} />
+       </div>
+     </div>
+    );
+  }
 }
 
 export function mapStateToProps({ users, transactions, isFetching }: StoreState) {

@@ -8,7 +8,7 @@ function Transactions({transactions}: Props) {
     return (
         <div className="col-2">
             <table>
-                <thead><th>From</th><th>To</th><th>Amount</th></thead>
+                <thead><tr><th>From</th><th>To</th><th>Amount</th></tr></thead>
                 <tbody>
                     {transactions && transactions.map(item => {
                         return (

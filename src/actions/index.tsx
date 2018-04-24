@@ -43,29 +43,39 @@ export function FailRequest(error: string): FailRequest {
     }
 }
 // export function LogIn(id: number): LogIn {
-//     // new Promise(function(resolve: () => void) {
-
-//     // });
-    
 //     return {
 //         id,
 //         type: constants.LOG_IN
 //     }
 // }
+// type SideEffect<T> = ThunkAction<Promise<T>, StoreState, {}, LogIn>;
+
+// export function asyncFunc(id: number): SideEffect<string> {
+//     return async (dispatch, getState) => {
+//       dispatch({ type: constants.LOG_IN });
+//       return 'NICE!';
+//     };
+//   }
+
+
+//   export function LogIn(id: number): ThunkAction<void, StoreState, {}, LogIn>{
+//       return dispatch => {
+//         dispatch({
+//             id: 1,
+//             type: constants.LOG_IN
+//         })
+//       }
+//   }
+
+
 const LogIn: ActionCreator<ThunkAction<Action, StoreState, void>> = () => {
-    return (dispatch: Dispatch<StoreState>): Action => {
-        try {
-            const resp = 1;
-            return dispatch({
-                id: resp,
-                type: constants.LOG_IN
-            })
-        } catch (error) {
-            return dispatch(FailRequest(error));
-        }
+    return (dispatch: Dispatch<Action, StoreState>): Action => {
+        return dispatch({
+            id: 1,
+            type: constants.LOG_IN
+        })
     }
 }
-export default LogIn;
 export function GetApiKey(id: number): GetApiKey {
     return {
         id,
